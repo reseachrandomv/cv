@@ -87,3 +87,7 @@ h1 .ln:nth-child(2)>span{animation-delay:.15s}
 .reveal.in .chips span{opacity:1;scale:1;translate:0 0}
 @media(max-width:860px){.stats{justify-content:center}.grid3>.card,.grid2>.card{--fx:0px!important}}
 @media(prefers-reduced-motion:reduce){.reveal .card,.reveal .chips span{opacity:1!important;translate:none!important;rotate:none!important;scale:none!important}}
+/* fix: gradient text on animated lines */
+.hero h1{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#fff;animation:none}
+.hero h1 .ln>span{background:linear-gradient(100deg,#fff 25%,#c9cdfb,#5865F2,#fff);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:flip .9s var(--spring) both,sh 6s linear infinite}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.15s,0s}
