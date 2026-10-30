@@ -25,3 +25,6 @@ document.addEventListener('pointerdown',e=>{
  if(RM)return;for(let i=0;i<10;i++){const p=document.createElement('i');p.className='burst';const a=Math.PI*2*i/10,d=40+Math.random()*30;
   p.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px;background:${['#8ea1ff','#5865F2','#c7d2ff','#5ee1ff'][i%4]}`;document.body.appendChild(p);setTimeout(()=>p.remove(),600)}});
 document.querySelectorAll('.dc').forEach(b=>b.addEventListener('click',()=>{const u=b.dataset.user;navigator.clipboard?.writeText(u);b.textContent='Copied: '+u;setTimeout(()=>b.textContent='Discord: '+u,1600)}));
+// count-up stats
+document.querySelectorAll('.stat b').forEach(el=>{const n=+el.dataset.n;if(RM){el.textContent=n;return}
+ const t0=performance.now()+700,d=1100;const f=t=>{const k=Math.min(Math.max((t-t0)/d,0),1);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
